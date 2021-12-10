@@ -6,27 +6,31 @@ struct node{
 };
 class binary{
     private:
-    node* head = NULL,*temp = NULL,*p,*head2 = NULL,*temp1 = NULL;
+    node* head = NULL,*temp = NULL,*head2 = NULL,*temp1 = NULL;
     public:
     node* create(int k){
-            p = new node;
-            p->num=k;
-            p->next = NULL;
-            p->prev = NULL;
-            return p;
+        node* p;
+        p = new node;
+        p->num=k;
+        p->next = NULL;
+        p->prev = NULL;
+        return p;
     }
-    node* insert(node* m,int j){
-        node*nn = create(j);
+    node* insert(node* m,int k){
+        node* p;
+        int c = k;
+        p = create(c);
         if(m == NULL){
-            m = nn;
+            m = p;
         }
         else{
+            temp = m;
             while(temp->next!=NULL){
                 temp = temp->next;
             }
-            nn = temp->next;
-            nn->prev=temp;
-            nn = temp;
+            temp->next = p;
+            p->prev=temp;
+            p = temp;
             temp->next = NULL;
             return m;
         }
@@ -39,12 +43,12 @@ class binary{
         }
     }
     void binaryInsert(){
-        int a;
+        int a,t;
         cout<<"enter decimal number ";
         cin>>a;
         while(a != 0){
-            a = a%2;
-            insert(head,a);
+            t = a%2;
+            insert(head,t);
             a = a/2;
         }
         display(head);
@@ -97,7 +101,7 @@ class binary{
 int main(){
     binary b;
     b.binaryInsert();
-    b.comple1();
-    b.comple2();
+   /*  b.comple1();
+    b.comple2(); */
     return 0;
 }
