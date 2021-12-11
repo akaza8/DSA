@@ -7,7 +7,7 @@ def pRint(k):
             print(k[i][j]," ")
         print()
 def displayT(m1):
-matrixT = []
+    matrixT = []
     for i in range(R):
         a = []
         for j in range(C):
@@ -16,7 +16,7 @@ matrixT = []
     for i in range(R) :
         for j in range(C) :
             m1[i][j] = m2[i][j]
-    pRint(m1)
+    pRint(matrixT)
 #matrix1
 R = int(input("enter no of rows "))
 C = int(input("input(Enter no of coloumns" ))
