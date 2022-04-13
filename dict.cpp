@@ -88,16 +88,16 @@ class dict{
         if(root->key>key){
             root->left = deleteNode(root->left,key);
         }
-        if(root->left==NULL && root->right == NULL){
+        if(root!=NULL && root->left==NULL && root->right == NULL){
             delete(root);
             return NULL;
         } 
-        if(root->left==NULL && root->right){
+        if(root!=NULL && root->left==NULL && root->right){
             node* temp = root->right;
             delete(root);
             return temp;
         }
-        if(root->right == NULL && root->left){
+        if(root!=NULL && root->right == NULL && root->left){
             node* temp = root->left;
             delete(root);
             return temp;
@@ -105,6 +105,7 @@ class dict{
         // special case
         node* temp = inordersuccessor(root->right);
         root->key = temp->key;
+	root->value = temp->value;
         root->left = deleteNode(root->left,temp->key);
         return root;
     }
@@ -122,6 +123,7 @@ int main(){
     int ch=1; 
     node* nn;
     while(ch){
+	cout<<"1->insert in bst\n2->display bst\n3->search & Update\n4->delete\n";
         cout<<"\nch ";
         cin>>ch; char k;string kv,v;string kv1;
         switch(ch){
@@ -136,6 +138,7 @@ int main(){
                
                 cout<<"press A for print in ascending and D for Descending ";
                 cin>>k;
+		cout<<endl;
                 if(k =='A')
                 d.printAscending(d.root);
                 else    d.printDesending(d.root);}
