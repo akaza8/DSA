@@ -51,7 +51,7 @@ void tree :: obst(){
     for(int i=0;i<=n;++i){
         w[i][i+1] = w[i][i]+p[i+1]+q[i+1];
         r[i][i+1] = i+1;
-        c[i][i+1] = c[i][i]+c[i][i+1];
+        c[i][i+1] = c[i][i]+c[i][i+1]+w[i][i+1];
     }
     // for diff |j-i|>= 2
     for(int i=0;i<=n;++i){
